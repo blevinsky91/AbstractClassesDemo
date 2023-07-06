@@ -10,9 +10,68 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            /*
-             * Todo follow all comments!! 
-             */
+            
+            List<Vehicle> vehicleList = new List<Vehicle>();
+
+            Car auto = new Car();
+
+            auto.Year = "2020";
+            auto.Make = "Chevy";
+            auto.Model = "Tahoe";
+
+            auto.DriveAbstract();
+            
+
+            Motorcycle moto = new Motorcycle();
+
+            moto.Year = "1977";
+            moto.Make = "Triumph";
+            moto.Model = "Daytona";
+
+            moto.DriveAbstract();
+
+
+            Vehicle car2 = new Car()
+            {
+                HasSunRoof = true,
+                HasBigWheels = true,
+                Make = "Honda",
+                Model = "Civic",
+                Year = "2000"
+
+            };
+            car2.DriveAbstract();
+
+
+            Vehicle moto2 = new Motorcycle()
+            {
+                IsStretched = false,
+                HasSideCart = true,
+                Make = "Kawasaki",
+                Model = "Ninja",
+                Year = "2023"
+
+            };
+            moto2.DriveAbstract();
+
+
+            vehicleList.Add(auto);
+            vehicleList.Add(moto);
+            vehicleList.Add(car2);
+            vehicleList.Add(moto2);
+
+
+            foreach (Vehicle vehicle in vehicleList)
+            {
+                Console.WriteLine(vehicle.Make);
+                Console.WriteLine(vehicle.Model);
+                Console.WriteLine(vehicle.Year);
+                Console.WriteLine();
+                vehicle.DriveVirtual();
+                vehicle.DriveAbstract();
+                Console.WriteLine();
+            }
+
 
             #region Vehicles
 
@@ -46,8 +105,10 @@ namespace ConsoleUI
 
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
             Console.ReadLine();
+
+            
         }
     }
 }
